@@ -39,11 +39,14 @@ let process_line nd str =
   (10 * Option.get !d1) + Option.get !d2
 
 let _ =
-  let sum1 = ref 0 and sum2 = ref 0 in
-  Gen.(
-    of_file file
-    |> iter (fun line ->
-           sum1 := !sum1 + process_line next_digit_1 line;
-           sum2 := !sum2 + process_line next_digit_2 line));
-  Printf.printf "Part one : %d\n" !sum1;
-  Printf.printf "Part two : %d\n" !sum2
+  let sum1, sum2 =
+    Gen.(
+      of_file file
+      |> fold
+           (fun (s1, s2) line ->
+             ( s1 + process_line next_digit_1 line,
+               s2 + process_line next_digit_2 line ))
+           (0, 0))
+  in
+  Printf.printf "Part one : %d\n" sum1;
+  Printf.printf "Part two : %d\n" sum2

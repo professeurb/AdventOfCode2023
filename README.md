@@ -15,3 +15,5 @@ A second solution, faster, is based on regular expressions.
 The first version uses the standard library. We search for string patterns using a set of hand-written pattern matchings.
 
 The second version uses the experimental [`brucore`](https://github.com/professeurb/brucore) library which provides some extra functionalities (generators, dynamic arrays, etc.).
+
+Not totally convinced, but it works.
