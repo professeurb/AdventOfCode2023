@@ -16,7 +16,7 @@ dict2 = dict1 | {digit_names[d]: d for d in range(len(digit_names))}
 
 
 def factor_at(factor, text, pos):
-    return text[pos : pos + len(factor)] == factor
+    return text[pos: pos + len(factor)] == factor
 
 
 def list_digits(d, s):
@@ -25,6 +25,7 @@ def list_digits(d, s):
         for k in d:
             if factor_at(k, s, i):
                 digits.append(d[k])
+                break
     return digits
 
 

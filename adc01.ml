@@ -27,12 +27,11 @@ let get_value nd str =
   let rec aux l =
     match nd l with
     | Some (d, l') ->
-        (print_int d;
-         match !d1 with
-         | None ->
-             d1 := Some d;
-             d2 := Some d
-         | Some _ -> d2 := Some d);
+        (match !d1 with
+        | None ->
+            d1 := Some d;
+            d2 := Some d
+        | Some _ -> d2 := Some d);
         aux l'
     | None -> ()
   in
@@ -45,16 +44,12 @@ let _ =
   try
     while true do
       let line = input_line data in
-      Printf.printf "%s: %!" line;
       let v1 = get_value next_digit_1 line in
-      Printf.printf "%! -> %d, " v1;
       sum1 := v1 + !sum1;
       let v2 = get_value next_digit_2 line in
-      Printf.printf "%! -> %d, " v2;
-      sum2 := v2 + !sum2;
-      print_newline ()
+      sum2 := v2 + !sum2
     done
   with End_of_file ->
+    close_in data;
     Printf.printf "Part one : %d\n" !sum1;
-    Printf.printf "Part two : %d\n" !sum2;
-    close_in data
+    Printf.printf "Part two : %d\n" !sum2
