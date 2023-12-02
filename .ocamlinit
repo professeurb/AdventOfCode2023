@@ -1,3 +1,4 @@
 #require "brucore" ;;
+#require "angstrom" ;;
 
 open Brucore
