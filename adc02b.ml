@@ -33,8 +33,8 @@ module Parser = struct
     in
     (number, color)
 
-  let bag = many_with_sep one_color (string ", ")
-  let bags = many_with_sep (bag >>| make_bag) (string "; ")
+  let bag = sep_by1 (string ", ") one_color
+  let bags = sep_by1 (string "; ") (bag >>| make_bag)
 
   let line =
     let+ id = header and+ bags = bags in

@@ -27,6 +27,7 @@ reg1 = regex_from_dict(dict1)
 reg2 = regex_from_dict(dict2)
 
 
+
 def get_digits(d, r, s):
     return [d[m.group()] for m in r.finditer(s)]
 

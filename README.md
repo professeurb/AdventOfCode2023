@@ -29,3 +29,13 @@ The use of string splitting w.r.t. another string, together with dictionnaries, 
 Here, the situation is more complicated, since the splitting function for strings is not as versatile as in Python. This leads to a very complicated and unefficient program.
 
 However, if you use a decent parser library (as I have done with [Angstrom](https://github.com/inhabitedtype/angstrom)), things become much simpler as can be seen in the second version, where the parsing of the input file is no longer the hardest part to write.
+
+## Day 3
+
+### Python
+
+We first start by making two dictionnaries, one telling for each number (the value) its position (the key). Doing the same for symbols, it is then easy to determine the symbols surrounding each number.
+
+### OCaml
+
+This is mostly the OCaml translation of the Python version, with hash tables.
