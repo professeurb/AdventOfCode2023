@@ -4,3 +4,10 @@
   (modules adc04)
   (libraries angstrom)
   )
+
+(executable
+  (public_name adc04b)
+  (name adc04b)
+  (modules adc04b)
+  (libraries brucore angstrom)
+  )

@@ -12,4 +12,12 @@ In `adc04b.py`, we improve the efficiency of the computation of the score using 
 
 ## OCaml
 
-This version resembles the first python version, with the use of arrays in the second part.
+The first version resembles the first python version, with the use of arrays in the second part. In terms of complexity, it is not as efficient, as we sort the two lists of numbers (in O(n log n)) in order to compule efficiently their intersection (in O(n)).
+
+A second version uses the different components defined in [Brucore](https://github.com/professeurb/brucore):
+
+- dynamic arrays (_à la Python_)
+- hashsets
+- generators
+
+We obtain a very concise and efficient code (efficient... at least in terms of complexity, not in terms of actual speed as the data is too small).
