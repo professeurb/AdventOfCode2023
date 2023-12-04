@@ -1,0 +1,11 @@
+(executable
+  (public_name adc01)
+  (name adc01)
+  (modules adc01)
+  )
+
+(executable
+  (public_name adc01b)
+  (name adc01b)
+  (modules adc01b)
+  (libraries brucore))

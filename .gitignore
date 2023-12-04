@@ -1,0 +1,5 @@
+_build/
+
+# MacOS Stuff
+.DS_Store
+.Spotlight-V100

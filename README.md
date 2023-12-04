@@ -2,40 +2,14 @@
 
 This repositery contains my solutions for the Advent of Code 2023.
 
-## Day 1
+It is organized into folders. Usually, solutions are provided in two langages, Python and OCaml.
 
-### Python
+For executing OCaml programs from the CLI, one should use [`dune`](https://github.com/ocaml/dune):
 
-A first solution where we compute a list of all the digits (in order) present in the string. We then only need to get the first one and the last one. We use dictionnaries to find the digits.
+```shell
+cd adc04 # day 4
+dune build
+dune exec adc04
+```
 
-A second solution, faster, is based on regular expressions.
-
-### OCaml
-
-The first version uses the standard library. We search for string patterns using a set of hand-written pattern matchings.
-
-The second version uses the experimental [`brucore`](https://github.com/professeurb/brucore) library which provides some extra functionalities (generators, dynamic arrays, etc.).
-
-Not totally convinced, but it works.
-
-## Day 2
-
-### Python
-
-The use of string splitting w.r.t. another string, together with dictionnaries, leads to a rather straightforward program.
-
-### OCaml
-
-Here, the situation is more complicated, since the splitting function for strings is not as versatile as in Python. This leads to a very complicated and unefficient program.
-
-However, if you use a decent parser library (as I have done with [Angstrom](https://github.com/inhabitedtype/angstrom)), things become much simpler as can be seen in the second version, where the parsing of the input file is no longer the hardest part to write.
-
-## Day 3
-
-### Python
-
-We first start by making two dictionnaries, one telling for each number (the value) its position (the key). Doing the same for symbols, it is then easy to determine the symbols surrounding each number.
-
-### OCaml
-
-This is mostly the OCaml translation of the Python version, with hash tables.
+Currently, additional libraries ([`angstrom`](https://github.com/inhabitedtype/angstrom) and [`brucore`](https://github.com/professeurb/brucore)) have to be installed manually.
