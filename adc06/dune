@@ -1,0 +1,20 @@
+(executable
+  (public_name adc06)
+  (name adc06)
+  (modules adc06)
+  (libraries angstrom)
+  )
+
+(executable
+  (public_name adc06b)
+  (name adc06b)
+  (modules adc06b)
+  (libraries angstrom)
+  )
+
+(executable
+  (public_name adc06t)
+  (name adc06t)
+  (modules adc06t)
+  (libraries angstrom)
+  )

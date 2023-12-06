@@ -1,0 +1,13 @@
+(executable
+  (public_name adc05)
+  (name adc05)
+  (modules adc05)
+  (libraries angstrom)
+  )
+
+(executable
+  (public_name adc05b)
+  (name adc05b)
+  (modules adc05b)
+  (libraries angstrom)
+  )
