@@ -1,0 +1,6 @@
+(executable
+  (public_name adc07)
+  (name adc07)
+  (modules adc07)
+  )
+
