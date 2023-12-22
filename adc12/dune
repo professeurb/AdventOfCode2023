@@ -1,0 +1,20 @@
+(executable
+  (public_name adc12)
+  (name adc12)
+  (modules adc12)
+  (libraries angstrom)  
+  )
+
+(executable
+  (public_name adc12c)
+  (name adc12c)
+  (modules adc12c)
+  (libraries angstrom brucore)  
+  )
+
+(executable
+  (public_name adc12d)
+  (name adc12d)
+  (modules adc12d)
+  (libraries angstrom brucore)  
+  )

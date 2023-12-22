@@ -1,0 +1,7 @@
+(executable
+  (public_name adc19)
+  (name adc19)
+  (modules adc19)
+(libraries angstrom)  
+  )
+

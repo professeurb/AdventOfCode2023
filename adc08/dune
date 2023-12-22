@@ -1,0 +1,6 @@
+(executable
+  (public_name adc08)
+  (name adc08)
+  (modules adc08)
+  )
+

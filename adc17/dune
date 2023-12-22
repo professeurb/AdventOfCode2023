@@ -1,0 +1,24 @@
+(executable
+  (public_name adc17)
+  (name adc17)
+  (modules adc17)
+  )
+
+
+(executable
+  (public_name adc17b)
+  (name adc17b)
+  (modules adc17b)
+  )
+
+(executable
+  (public_name adc17c)
+  (name adc17c)
+  (modules adc17c)
+  )
+
+(executable
+  (public_name adc17d)
+  (name adc17d)
+  (modules adc17d)
+  )

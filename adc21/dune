@@ -1,0 +1,14 @@
+(executable
+  (public_name adc21)
+  (name adc21)
+  (modules adc21)
+  (libraries angstrom)  
+  )
+
+(executable
+  (public_name adc21b)
+  (name adc21b)
+  (modules adc21b)
+  (libraries angstrom)  
+  )
+
