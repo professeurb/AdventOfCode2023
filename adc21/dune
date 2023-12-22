@@ -12,3 +12,10 @@
   (libraries angstrom)  
   )
 
+(executable
+  (public_name adc21c)
+  (name adc21c)
+  (modules adc21c)
+  (libraries angstrom)  
+  )
+

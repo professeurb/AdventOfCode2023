@@ -76,22 +76,52 @@ let score center edges corners sq target =
   (* Printf.printf "...%d, %d: " sq target; *)
   let sum = ref 0 in
   sum += center.(min target ((4 * sq) + 2 - (target mod 2)));
-  let e = ref (sq + 1) in
-  while !e <= target do
-    sum
-    += edges.(min (target - !e)
-                ((4 * sq) + 2 - ((target - !e) mod 2)));
-    e := !e + ((2 * sq) + 1)
+  (*
+  First, lines...
+
+  from (2 sq + 1) k - sq to (2 sq + 1) k + 2 sq
+  soit (2 sq + 1) k + 2 sq <= target
+     <=> k <= (target - 2 sq) / (2 sq + 1)
+  et target < (2 sq + 1) k - sq
+     <=> k > (target + sq) / (2 sq + 1)
+
+  *)
+  let ka = (target - (2 * sq)) / ((2 * sq) + 1)
+  and kb = (target + sq) / ((2 * sq) + 1) in
+  sum
+  += (ka + 1) / 2
+     * edges.((4 * sq) + 2 - ((target + sq + 1) mod 2));
+  sum += (ka / 2 * edges.((4 * sq) + 2 - ((target + sq) mod 2)));
+  for k = ka + 1 to kb do
+    let d = target - ((((2 * sq) + 1) * k) - sq) in
+    assert (d >= 0);
+    sum += edges.(min d ((4 * sq) + 2 - (d mod 2)))
   done;
-  let f = ref (2 * (sq + 1)) and k = ref 2 in
-  while !f <= target do
+  (*
+  Second,quadrants...
+
+  from (2 * sq + 1) * (k + l) - 2 sq to (2 * sq + 1) * (k + l) + 2 sq
+  soit (2 * sq + 1) * (k + l) + 2 sq <= target
+      <=> k + l <= (target - 2 sq) / (2 sq + 1)
+  et target < (2 sq + 1) (k + l) - 2 sq
+      <=> k + l > (target + 2 sq) / (2 sq + 1)
+  *)
+  let kla = (target - (2 * sq)) / ((2 * sq) + 1)
+  and klb = (target + (2 * sq)) / ((2 * sq) + 1) in
+  if kla >= 2 then (
     sum
-    += (!k - 1)
-       * corners.(min (target - !f)
-                    ((4 * sq) + 2 - ((target - !f) mod 2)));
-    f := !f + ((2 * sq) + 1);
-    incr k
-  done;
+    += kla / 2 * (kla / 2)
+       * corners.((4 * sq) + 2 - (target mod 2));
+    sum
+    += ((kla * (kla - 1) / 2) - (kla / 2 * (kla / 2)))
+       * corners.((4 * sq) + 2 - ((target + 1) mod 2)));
+  if kla >= 1 then
+    for kl = kla + 1 to klb do
+      let d = target - ((((2 * sq) + 1) * kl) - (2 * sq)) in
+      assert (d >= 0);
+      sum
+      += ((kl - 1) * corners.(min d ((4 * sq) + 2 - (d mod 2))))
+    done;
   !sum
 
 let _ =
@@ -116,3 +146,23 @@ let _ =
     (score center edges corners sq 64);
   Printf.printf "Part two: %d\n"
     (score center edges corners sq 26501365)
+
+(* somme des u - 1 pour u pair et 2 <= u <= kl *)
+(*
+let rec bli u =
+  if u <= 1 then 0
+  else if u mod 2 = 1 then bli (u - 1)
+  else u - 1 + bli (u - 1)
+
+let rec bla u =
+  if u <= 2 then 0
+  else if u mod 2 = 0 then bla (u - 1)
+  else u - 1 + bla (u - 1)
+
+let _ =
+  for i = 0 to 20 do
+    Printf.printf "%d : %d, %d | %d, %d \n" i (bli i) (bla i)
+      (i / 2 * (i / 2))
+      ((i * (i - 1) / 2) - (i / 2 * (i / 2)))
+  done
+*)
