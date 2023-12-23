@@ -1,0 +1,12 @@
+(executable
+  (public_name adc23)
+  (name adc23)
+  (modules adc23)
+(libraries angstrom)  
+  )
+(executable
+  (public_name adc23b)
+  (name adc23b)
+  (modules adc23b)
+(libraries angstrom)  
+  )
