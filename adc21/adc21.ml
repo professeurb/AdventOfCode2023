@@ -1,7 +1,7 @@
-let file, steps = ("test21.txt", 6)
+(* let file, steps = ("test21.txt", 6) *)
 
 (* let file, steps = ("test21b.txt", 6) *)
-(* let file, steps = ("input21.txt", 6) *)
+let file, steps = ("input21.txt", 6)
 
 (* let file, steps = ("input21.txt", 64) *)
 let mmod a b = ((a mod b) + (2 * b)) mod b

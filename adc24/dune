@@ -1,0 +1,7 @@
+(executable
+  (public_name adc24)
+  (name adc24)
+  (modules adc24)
+  (libraries angstrom)  
+  )
+
